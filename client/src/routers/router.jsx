@@ -11,6 +11,9 @@ import Uploadbook from "../dashboard.jsx/Uploadbook.jsx";
 import { Managebooks } from "../dashboard.jsx/Managebooks.jsx";
 import EditBooks from "../dashboard.jsx/EditBooks.jsx";
 import SignUp from "../components/SignUp.jsx";
+import Login from "../components/Login.jsx";
+import PrivateRoute from "../PrivateRoute/PrivateRoute.jsx";
+import Logout from "../components/Logout.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -42,7 +45,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/admin/dashboard",
@@ -67,6 +74,14 @@ const router = createBrowserRouter([
   {
     path: "/sign-up",
     element: <SignUp />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/logout",
+    element: <Logout />,
   },
 ]);
 

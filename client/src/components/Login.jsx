@@ -2,11 +2,10 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import googleLogo from "../assets/google-logo.svg";
-
-const SignUp = () => {
+const Login = () => {
   const navigate = useNavigate();
-  const [error, setError] = useState("error");
-  const { user, createUser, loginWithGoogle } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const { user, login, loginWithGoogle } = useContext(AuthContext);
   console.log(user);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,19 +13,13 @@ const SignUp = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
-    createUser(email, password)
-      .then((userCredential) => {
-        // Signed up
-        const user = userCredential.user;
-        alert("Signed In successfully");
+    login(email, password)
+      .then((userCred) => {
+        alert("Logged In Successfully");
         navigate("/");
-        // ...
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        setError(errorMessage);
-        // ..
+        setError(error);
       });
   };
 
@@ -51,7 +44,7 @@ const SignUp = () => {
         <div className="relative px-4 py-10 bg-white shadow-lg sm:rounded-3xl sm:p-20">
           <div className="max-w-md mx-auto">
             <div>
-              <h1 className="text-2xl font-semibold">Sign Up</h1>
+              <h1 className="text-2xl font-semibold">Login Form</h1>
             </div>
             <div className="divide-y divide-gray-200">
               <form
@@ -77,16 +70,23 @@ const SignUp = () => {
                     placeholder="Password"
                   />
                 </div>
+                {error ? (
+                  <p className="text-red-600 text-base">
+                    Email or password incorrect
+                  </p>
+                ) : (
+                  ""
+                )}
                 <p>
-                  If you have an account. Please{" "}
-                  <Link to="/login" className="text-blue-600 underline">
-                    Login
+                  If you haven't an account. Please{" "}
+                  <Link to="/sign-up" className="text-blue-600 underline">
+                    Sign Up
                   </Link>{" "}
                   Here
                 </p>
                 <div className="relative">
                   <button className="bg-blue-500 text-white rounded-md px-6 py-2">
-                    Sign Up
+                    Login
                   </button>
                 </div>
               </form>
@@ -110,4 +110,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default Login;
