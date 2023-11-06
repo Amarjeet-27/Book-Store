@@ -94,7 +94,7 @@ const Login = () => {
             <hr />
 
             <div className="flex w-full items-center flex-col mt-5 gap-3 ">
-              <button className="block" onSubmit={handleRegister}>
+              <button className="block" onClick={handleRegister}>
                 <img
                   src={googleLogo}
                   alt="google"

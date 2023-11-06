@@ -7,11 +7,11 @@ import {
   signInWithPopup,
   signInWithEmailAndPassword,
   signOut,
+  GoogleAuthProvider,
 } from "firebase/auth";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
-import { GoogleAuthProvider } from "firebase/auth";
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {

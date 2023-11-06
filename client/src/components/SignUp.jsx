@@ -35,7 +35,7 @@ const SignUp = () => {
       .then((result) => {
         const user = result.user;
         alert("Sign up Successfully");
-        navigate(from, { replace: true });
+        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -94,7 +94,7 @@ const SignUp = () => {
             <hr />
 
             <div className="flex w-full items-center flex-col mt-5 gap-3 ">
-              <button className="block" onSubmit={handleRegister}>
+              <button className="block" onClick={handleRegister}>
                 <img
                   src={googleLogo}
                   alt="google"
