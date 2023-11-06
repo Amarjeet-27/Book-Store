@@ -3,7 +3,7 @@ import SideBar from "./SideBar";
 
 const DashboardLayout = () => {
   return (
-    <div className="flex gap-4 flex-col md:flex-row ">
+    <div className="flex gap-4 flex-col md:flex-row min-h-screen">
       <SideBar />
       <Outlet />
     </div>

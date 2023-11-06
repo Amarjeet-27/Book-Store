@@ -1,17 +1,19 @@
 import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { authContext } from "../context/AuthProvider";
+import { AuthContext } from "../context/AuthProvider";
+import googleLogo from "../assets/google-logo.svg";
 
 const SignUp = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("error");
-  const { createUser } = useContext(authContext);
+  const { createUser, loginWithGoogle } = useContext(AuthContext);
+
   const handleSubmit = (e) => {
-    const form = e.target;
     e.preventDefault();
+    const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-
+    console.log(email, password);
     createUser(email, password)
       .then((userCredential) => {
         // Signed up
@@ -19,6 +21,21 @@ const SignUp = () => {
         alert("Signed In successfully");
         navigate("/");
         // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        setError(errorMessage);
+        // ..
+      });
+  };
+
+  const handleRegister = () => {
+    loginWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        alert("Sign up Successfully");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -73,6 +90,18 @@ const SignUp = () => {
                   </button>
                 </div>
               </form>
+            </div>
+            <hr />
+
+            <div className="flex w-full items-center flex-col mt-5 gap-3 ">
+              <button className="block" onSubmit={handleRegister}>
+                <img
+                  src={googleLogo}
+                  alt="google"
+                  className="w-12 h-12 inline-block"
+                />
+                Login with Google
+              </button>
             </div>
           </div>
         </div>

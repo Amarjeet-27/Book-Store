@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBarsStaggered, FaBlog, FaXmark } from "react-icons/fa6";
+import { AuthContext } from "../context/AuthProvider";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
-
+  const { user } = useContext(AuthContext);
+  // console.log(user.email);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -31,7 +33,7 @@ const Navbar = () => {
   return (
     <header className="w-full  bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300">
       <nav
-        className={`py-4 lg:px-24  px-24 bg-blue-300${
+        className={`py-4 lg:px-24  px-24 bg-blue-200${
           isSticky ? "sticky top-0 left-0 right-0 bg-blue-300" : ""
         }`}
       >
@@ -60,8 +62,9 @@ const Navbar = () => {
 
           <div className="space-x-12 hidden lg-flex items-center">
             <button>
-              <FaBarsStaggered className="w-5" />
+              <FaBarsStaggered className="w-5 hover:text-blue-700" />
             </button>
+            {/*user ? user.email : "" */}
           </div>
 
           <div className="md:hidden">
