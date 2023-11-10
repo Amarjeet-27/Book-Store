@@ -34,6 +34,7 @@ const Uploadbook = () => {
     const imageUrl = data.imageUrl.value;
     const bookUrl = data.bookUrl.value;
     const description = data.description.value;
+    const price = data.price.value;
     const dataObj = {
       bookTitle,
       author,
@@ -41,6 +42,7 @@ const Uploadbook = () => {
       bookUrl,
       imageUrl,
       description,
+      price,
     };
     fetch("http://localhost:3001/upload-book", {
       method: "POST",
@@ -49,19 +51,20 @@ const Uploadbook = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        console.log(res);
+        // console.log(res);
+        alert("Book Uploaded Successfully");
         data.reset();
       });
   };
   return (
-    <div className="px-4 my-12">
+    <div className="px-4 my-12 w-full">
       <h2>Upload A Book</h2>
       <form
         onSubmit={handleSubmit}
         className="flex lg:w-[1180px] flex-col flex-wrap gap-4"
       >
         <div className="flex gap-8">
-          <div className="lg:w-1/2 ">
+          <div className="w-1/2 ">
             <div className="mb-2 block">
               <Label htmlFor="bookTitle" value="Book Title" />
             </div>
@@ -73,7 +76,7 @@ const Uploadbook = () => {
               required
             />
           </div>
-          <div className="lg:w-1/2 ">
+          <div className="w-1/2 ">
             <div className="mb-2 block">
               <Label htmlFor="author" value="Author" />
             </div>
@@ -87,7 +90,7 @@ const Uploadbook = () => {
           </div>
         </div>
         <div className="flex gap-8">
-          <div className="lg:w-1/2 ">
+          <div className="w-1/2 ">
             <div className="mb-2 block">
               <Label htmlFor="imageUrl" value="Book Image URL" />
             </div>
@@ -99,7 +102,7 @@ const Uploadbook = () => {
               required
             />
           </div>
-          <div className="lg:w-1/2 ">
+          <div className="w-1/2 ">
             <div className="mb-2 block">
               <Label htmlFor="category" value="Book Category" />
             </div>
@@ -119,6 +122,33 @@ const Uploadbook = () => {
           </div>
         </div>
 
+        <div className="flex gap-8">
+          <div className="w-1/2">
+            <div className="mb-2 block">
+              <Label htmlFor="bookUrl" value="Book PDF URL" />
+            </div>
+            <TextInput
+              id="bookUrl"
+              type="string"
+              name="bookUrl"
+              placeholder="book pdf url"
+              required
+            />
+          </div>
+          <div className="w-1/2 ">
+            <div className="mb-2 block">
+              <Label htmlFor="price" value="Price of Book" />
+            </div>
+            <TextInput
+              id="price"
+              type="number"
+              name="price"
+              placeholder="price "
+              required
+            />
+          </div>
+        </div>
+
         <div>
           <div className="mb-2 block">
             <Label htmlFor="description" value="Book Description" />
@@ -133,18 +163,7 @@ const Uploadbook = () => {
             rows={5}
           />
         </div>
-        <div>
-          <div className="mb-2 block">
-            <Label htmlFor="bookUrl" value="Book PDF URL" />
-          </div>
-          <TextInput
-            id="bookUrl"
-            type="string"
-            name="bookUrl"
-            placeholder="book pdf url"
-            required
-          />
-        </div>
+
         <Button type="submit" className="mt-5">
           Upload Book
         </Button>

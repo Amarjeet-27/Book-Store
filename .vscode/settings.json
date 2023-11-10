@@ -1,5 +1,10 @@
 {
   "eslint.codeAction.disableRuleComment": {
     "enable": false
+  },
+
+  "editor.quickSuggestions": {
+    "strings": true
   }
 }
+

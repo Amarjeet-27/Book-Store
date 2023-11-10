@@ -1,10 +1,13 @@
 import { Button, Label, Select, TextInput, Textarea } from "flowbite-react";
 import { useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const EditBooks = () => {
+  const navigate = useNavigate();
   // this data is allready being fetched in edit-section of router page
   const { id } = useParams();
-  const { bookTitle, author, imageUrl, bookUrl, description } = useLoaderData();
+  const { bookTitle, author, imageUrl, bookUrl, description, price } =
+    useLoaderData();
   const categories = [
     "Fiction",
     "Non-Fiction",
@@ -38,6 +41,7 @@ const EditBooks = () => {
     const imageUrl = data.imageUrl.value;
     const bookUrl = data.bookUrl.value;
     const description = data.description.value;
+    const price = data.price.value;
     const dataObj = {
       bookTitle,
       author,
@@ -45,6 +49,7 @@ const EditBooks = () => {
       bookUrl,
       imageUrl,
       description,
+      price,
     };
     fetch(`http://localhost:3001/book/${id}`, {
       method: "PATCH",
@@ -54,6 +59,7 @@ const EditBooks = () => {
       .then((res) => res.json())
       .then(() => {
         alert("Book Updated Successfully");
+        navigate("/admin/dashboard/manage");
       });
   };
   return (
@@ -123,6 +129,34 @@ const EditBooks = () => {
             </Select>
           </div>
         </div>
+        <div className="flex gap-8">
+          <div className="w-1/2">
+            <div className="mb-2 block">
+              <Label htmlFor="bookUrl" value="Book PDF URL" />
+            </div>
+            <TextInput
+              id="bookUrl"
+              type="string"
+              name="bookUrl"
+              placeholder="book pdf url"
+              required
+              defaultValue={bookUrl}
+            />
+          </div>
+          <div className="lg:w-1/2 ">
+            <div className="mb-2 block">
+              <Label htmlFor="price" value="Price of Book" />
+            </div>
+            <TextInput
+              id="price"
+              type="number"
+              name="price"
+              placeholder="price"
+              required
+              defaultValue={price}
+            />
+          </div>
+        </div>
 
         <div>
           <div className="mb-2 block">
@@ -139,19 +173,7 @@ const EditBooks = () => {
             defaultValue={description}
           />
         </div>
-        <div>
-          <div className="mb-2 block">
-            <Label htmlFor="bookUrl" value="Book PDF URL" />
-          </div>
-          <TextInput
-            id="bookUrl"
-            type="string"
-            name="bookUrl"
-            placeholder="book pdf url"
-            required
-            defaultValue={bookUrl}
-          />
-        </div>
+
         <Button type="submit" className="mt-5">
           Update Book
         </Button>

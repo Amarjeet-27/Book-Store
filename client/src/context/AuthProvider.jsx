@@ -46,6 +46,7 @@ const AuthProvider = ({ children }) => {
     };
     // unsubscribe();
   }, []);
+  const [search, setSearch] = useState("");
   const authInfo = {
     user,
     createUser,
@@ -53,6 +54,8 @@ const AuthProvider = ({ children }) => {
     loading,
     login,
     logout,
+    search,
+    setSearch,
   };
   return (
     <AuthContext.Provider value={authInfo}> {children}</AuthContext.Provider>

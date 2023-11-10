@@ -16,6 +16,7 @@ const bookSchema = {
   imageUrl: { type: String },
   description: { type: String },
   bookUrl: { type: String },
+  price: { type: Number },
 };
 const book = mongoose.model("books", bookSchema);
 
