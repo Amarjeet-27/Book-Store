@@ -2,7 +2,8 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaBarsStaggered, FaBlog, FaXmark } from "react-icons/fa6";
 import { AuthContext } from "../context/AuthProvider";
-
+import { Avatar } from "flowbite-react";
+import profile from "../assets/profile.jpg";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
@@ -16,11 +17,11 @@ const Navbar = () => {
         setIsSticky(false);
       }
     };
-    window.addEventListener(scroll, handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
-    return () => {
-      window.addEventListener(scroll, handleScroll);
-    };
+    // return () => {
+    //   window.addEventListener("scroll", handleScroll);
+    // };
   }, []);
 
   const navItem = [
@@ -33,8 +34,8 @@ const Navbar = () => {
   return (
     <header className="w-full  bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300">
       <nav
-        className={`py-4 lg:px-24  px-24 bg-blue-200${
-          isSticky ? "sticky top-0 left-0 right-0 bg-blue-300" : ""
+        className={`py-2 lg:px-24  px-12 bg-blue-200${
+          isSticky ? "sticky top-0 left-0 right-0 bg-blue-200" : ""
         }`}
       >
         <div className="flex justify-between items-center text-base gap-8">
@@ -44,7 +45,7 @@ const Navbar = () => {
             className="text-2xl font-bold text-blue-700 flex items-center gap-2 "
           >
             <FaBlog className="inline-block" />
-            Books
+            Book-Store
           </Link>
 
           <ul className="md:flex space-x-12 hidden">
@@ -58,13 +59,25 @@ const Navbar = () => {
               </Link>
             ))}
           </ul>
+          {user ? (
+            <div className="flex items-center justify-center gap-4">
+              <Avatar
+                img={profile}
+                alt="avatar of Jese"
+                rounded
+                className="w-9 cursor-pointer"
+              />
+              {/*<p>{user.email}</p>{" "}*/}
+            </div>
+          ) : (
+            ""
+          )}
           {/*btn for large device*/}
 
           <div className="space-x-12 hidden lg-flex items-center">
             <button>
               <FaBarsStaggered className="w-5 hover:text-blue-700" />
             </button>
-            {/*user ? user.email : "" */}
           </div>
 
           <div className="md:hidden">

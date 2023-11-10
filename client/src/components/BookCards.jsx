@@ -7,14 +7,14 @@ import "swiper/css";
 import "swiper/css/pagination";
 
 // import required modules
-import { Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "./bookCards.css";
 import { FaCartShopping } from "react-icons/fa6";
 
 const BookCards = (e) => {
   // console.log(e.books);
   return (
-    <div className="my-16 px-4 lg:px-24">
+    <div className="my-10 px-4 lg:px-24">
       <h2 className="text-5xl text-center font-bold text-black my-5">
         {e.headline}
       </h2>
@@ -40,7 +40,11 @@ const BookCards = (e) => {
               spaceBetween: 50,
             },
           }}
-          modules={[Pagination]}
+          // autoplay={{
+          //   delay: 2000,
+          //   disableOnInteraction: false,
+          // }}
+          modules={[Pagination, Autoplay, Navigation]}
           className="mySwiper"
         >
           {e.books.map((val) => (
@@ -55,11 +59,11 @@ const BookCards = (e) => {
 
                 <div className="">
                   <div className="">
-                    <h3>My mistake.</h3>
+                    <h3>{val.bookTitle}</h3>
                     <p>{val.author}</p>
                   </div>
                   <div className="">
-                    <p>Price: $20</p>
+                    <p>Price:${val.price}</p>
                   </div>
                 </div>
               </Link>

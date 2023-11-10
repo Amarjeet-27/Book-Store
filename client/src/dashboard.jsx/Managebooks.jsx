@@ -21,7 +21,7 @@ export const Managebooks = () => {
       });
   };
   return (
-    <div className="px-4 my-12">
+    <div className="px-4">
       <h2 className="mb-8 text-3xl font-bold">Manage Your Book</h2>
       <Table className="lg:w-[1180px]">
         <Table.Head>
@@ -45,7 +45,7 @@ export const Managebooks = () => {
               </Table.Cell>
               <Table.Cell>{book.author}</Table.Cell>
               <Table.Cell>{book.category}</Table.Cell>
-              <Table.Cell>$200</Table.Cell>
+              <Table.Cell>$ {book.price}</Table.Cell>
               <Table.Cell>
                 <Link
                   to={`/admin/dashboard/edit-books/${book._id}`}

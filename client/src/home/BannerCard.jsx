@@ -5,21 +5,30 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import "./BannerCard.css";
-import { EffectCards } from "swiper/modules";
+import { EffectCards, Autoplay, Navigation } from "swiper/modules";
+import { useNavigate } from "react-router-dom";
 const BannerCard = () => {
+  const handleNavigate = () => {
+    navigate("/shop");
+  };
+  const navigate = useNavigate();
   return (
     <div className="bannerCard">
       <Swiper
         effect={"cards"}
         grabCursor={true}
-        modules={[EffectCards]}
+        modules={[EffectCards, Autoplay, Navigation]}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
         className="mySwiper"
       >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
+        <SwiperSlide onClick={handleNavigate} />
+        <SwiperSlide onClick={handleNavigate} />
+        <SwiperSlide onClick={handleNavigate} />
+        <SwiperSlide onClick={handleNavigate} />
+        <SwiperSlide onClick={handleNavigate} />
       </Swiper>
     </div>
   );

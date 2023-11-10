@@ -17,7 +17,7 @@ const Review = () => {
         Our Customers
       </h2>
 
-      <div className="review">
+      <div className="review ">
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -39,9 +39,9 @@ const Review = () => {
             },
           }}
           modules={[Pagination]}
-          className="mySwiper"
+          className="mySwiper mt-10"
         >
-          <SwiperSlide className="shadow-2xl bg-white py-8 px-4 md:m-5 rounded-lg border ">
+          <SwiperSlide className="shadow-2xl m-8 bg-white py-8 px-4 md:m-5 rounded-lg border ">
             <div className="space-y-6">
               <div className="text-amber-500 flex gap-2">
                 <FaStar />
