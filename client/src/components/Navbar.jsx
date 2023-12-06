@@ -19,9 +19,9 @@ const Navbar = () => {
     };
     window.addEventListener("scroll", handleScroll);
 
-    // return () => {
-    //   window.addEventListener("scroll", handleScroll);
-    // };
+    return () => {
+      window.addEventListener("scroll", handleScroll);
+    };
   }, []);
 
   const navItem = [
@@ -34,12 +34,11 @@ const Navbar = () => {
   return (
     <header className="w-full  bg-transparent fixed top-0 left-0 right-0 transition-all ease-in duration-300">
       <nav
-        className={`py-2 lg:px-24  px-12 bg-blue-200${
+        className={`py-2 lg:px-24 w-[100%] pl-8 pr-12 bg-blue-200${
           isSticky ? "sticky top-0 left-0 right-0 bg-blue-200" : ""
         }`}
       >
         <div className="flex justify-between items-center text-base gap-8">
-          {}
           <Link
             to="/"
             className="text-2xl font-bold text-blue-700 flex items-center gap-2 "
@@ -59,6 +58,7 @@ const Navbar = () => {
               </Link>
             ))}
           </ul>
+
           {user ? (
             <div className="flex items-center justify-center gap-4">
               <Avatar

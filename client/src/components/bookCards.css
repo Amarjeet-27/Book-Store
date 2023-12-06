@@ -6,7 +6,7 @@
   .bookCards .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    background: rgb(213 245 246);
   
     /* Center slide text vertically */
     display: flex;

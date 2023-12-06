@@ -13,7 +13,6 @@ const BestSellerBooks = () => {
         setSearch(data);
         setBooks(data.slice(0, 8));
       });
-    // console.log(books);
   }, []);
   return (
     <div>

@@ -34,7 +34,7 @@ const SearchBooks = ({ books, headline }) => {
   return (
     <div className="Search">
       {filteredItems.length > 0 && (
-        <div className="my-16 px-4 lg:px-24 bg-red-200-100">
+        <div className="mt-4 mb-16 px-4 lg:px-24 bg-red-200-100">
           <h2 className="text-5xl py-5 text-center font-bold text-red-600 my-5">
             {headline}
           </h2>
@@ -73,7 +73,7 @@ const SearchBooks = ({ books, headline }) => {
                       </div>
                     </div>
 
-                    <div className="">
+                    <div className="text-left ml-3">
                       <div className="">
                         <h3>{val.bookTitle}</h3>
                         <p>{val.author}</p>
