@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import BookCards from "../components/BookCards";
+
 import { AuthContext } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 // Import Swiper React components
@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import "./searchBook.css";
+// import "./searchBook.css";
 import { FaCartShopping } from "react-icons/fa6";
 
 const getItems = (books, search) => {
@@ -91,7 +91,7 @@ const SearchBooks = ({ books, headline }) => {
       )}
 
       {filteredItems.length === 0 && search.length > 0 && (
-        <h1 className="text-5xl py-5 bg-red-200 text-center  font-bold text-red-700-600 my-5">
+        <h1 className="text-5xl py-5 bg-red-600 text-center  font-bold text-red-700-600 my-5">
           No Book Found
         </h1>
       )}

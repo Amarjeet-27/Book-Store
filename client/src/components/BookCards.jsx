@@ -49,7 +49,7 @@ const BookCards = (e) => {
         >
           {e.books.map((val) => (
             <SwiperSlide key={val._id}>
-              <Link to={`/book/${val._id}`} className="my-5">
+              <div className="my-5">
                 <div className="relative">
                   <img src={val.imageUrl} alt="image" className="" />
                   <div className="absolute  top-3 right-3 bg-blue-600 hover:bg-black p-2 rounded">
@@ -66,7 +66,12 @@ const BookCards = (e) => {
                     <p>Price:${val.price}</p>
                   </div>
                 </div>
-              </Link>
+                <Link to={`/book/${val._id}`}>
+                  <button className="w-[100%] bg-blue-700 font-semibold text-white py-2 rounded">
+                    BUY NOW
+                  </button>
+                </Link>
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

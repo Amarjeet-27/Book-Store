@@ -55,14 +55,14 @@ const SingleBook = () => {
           <div className="flex items-center justify-center  gap-4">
             <button
               onClick={handleDecrement}
-              className="font-bold bg-orange-600 cursor-pointer rounded-lg flex justify-center items-center px-6 py-[12px] xl:py-4 border-1 text-white w-10 h-10"
+              className="font-bold bg-orange-600 cursor-pointer rounded-lg flex justify-center items-center px-4 xl:py-4 border-1 text-white w-4 h-4"
             >
               -
             </button>
-            {data}
+            <span className="text-lg ">{data}</span>
             <button
               onClick={handleIncrement}
-              className="font-bold bg-orange-600 cursor-pointer rounded-lg flex justify-center items-center px-6 py-[12px] xl:py-4 border-1 text-white w-10 h-10"
+              className="font-bold bg-orange-600 cursor-pointer rounded-lg flex justify-center items-center px-4  xl:py-4 border-1 text-white w-4 h-4"
             >
               +
             </button>
