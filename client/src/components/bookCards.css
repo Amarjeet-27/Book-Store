@@ -2,6 +2,9 @@
     width: 100%;
     height: 100%;
   }
+.bookCards .swiper .swiper-wrapper {
+    margin-bottom: 30px;
+  }
   
   .bookCards .swiper-slide {
     text-align: center;

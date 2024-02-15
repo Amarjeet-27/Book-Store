@@ -14,8 +14,8 @@ import { FaCartShopping } from "react-icons/fa6";
 const BookCards = (e) => {
   // console.log(e.books);
   return (
-    <div className="my-10 px-4 lg:px-24">
-      <h2 className="text-5xl text-center font-bold text-black my-5">
+    <div className="mt-8-10 mb-5 px-4 lg:px-24">
+      <h2 className="text-5xl text-center font-bold text-b-500 my-5">
         {e.headline}
       </h2>
 
@@ -37,7 +37,7 @@ const BookCards = (e) => {
             },
             1024: {
               slidesPerView: 5,
-              spaceBetween: 50,
+              spaceBetween: 30,
             },
           }}
           // autoplay={{
@@ -49,7 +49,7 @@ const BookCards = (e) => {
         >
           {e.books.map((val) => (
             <SwiperSlide key={val._id}>
-              <div className="my-5">
+              <div className="mt-0">
                 <div className="relative">
                   <img src={val.imageUrl} alt="image" className="" />
                   <div className="absolute  top-3 right-3 bg-blue-600 hover:bg-black p-2 rounded">
@@ -57,7 +57,7 @@ const BookCards = (e) => {
                   </div>
                 </div>
 
-                <div className="text-left ml-3 text-gray-500">
+                <div className="text-center  my-1 text-gray-500">
                   <div>
                     <h3>{val.bookTitle}</h3>
                     <p>{val.author}</p>

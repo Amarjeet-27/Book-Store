@@ -12,12 +12,12 @@ import { FaStar } from "react-icons/fa6";
 import profile from "../assets/profile.jpg";
 const Review = () => {
   return (
-    <div className="my-12 px-4 lg:px-24">
-      <h2 className="text-5xl font-bold text-center mb-10 leading-snug">
+    <div className="mb-8  px-4 lg:px-24">
+      <h2 className="text-5xl font-bold text-center mb-1 leading-snug">
         Our Customers
       </h2>
 
-      <div className="review ">
+      <div className="review mt-1">
         <Swiper
           slidesPerView={1}
           spaceBetween={30}

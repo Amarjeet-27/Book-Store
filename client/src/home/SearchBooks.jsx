@@ -11,7 +11,7 @@ import "swiper/css/pagination";
 
 // import required modules
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
-// import "./searchBook.css";
+
 import { FaCartShopping } from "react-icons/fa6";
 
 const getItems = (books, search) => {
@@ -34,7 +34,7 @@ const SearchBooks = ({ books, headline }) => {
   return (
     <div className="Search">
       {filteredItems.length > 0 && (
-        <div className="mt-4 mb-16 px-4 lg:px-24 bg-red-200-100">
+        <div className="mt-3 mb-16 px-4 lg:px-24 bg-red-200-100">
           <h2 className="text-5xl py-5 text-center font-bold text-red-600 my-5">
             {headline}
           </h2>
@@ -65,7 +65,7 @@ const SearchBooks = ({ books, headline }) => {
             >
               {filteredItems.map((val) => (
                 <SwiperSlide key={val._id}>
-                  <Link to={`/book/${val._id}`} className="my-5">
+                  <div to={`/book/${val._id}`} className="my-5">
                     <div className="relative">
                       <img src={val.imageUrl} alt="image" />
                       <div className="absolute  top-3 right-3 bg-blue-600 hover:bg-black p-2 rounded">
@@ -73,7 +73,7 @@ const SearchBooks = ({ books, headline }) => {
                       </div>
                     </div>
 
-                    <div className="text-left ml-3">
+                    <div className="text-center my-2">
                       <div className="">
                         <h3>{val.bookTitle}</h3>
                         <p>{val.author}</p>
@@ -82,7 +82,12 @@ const SearchBooks = ({ books, headline }) => {
                         <p>Price:$200</p>
                       </div>
                     </div>
-                  </Link>
+                    <Link to={`/book/${val._id}`}>
+                      <button className="w-[100%] bg-blue-700 font-semibold text-white py-2 rounded">
+                        BUY NOW
+                      </button>
+                    </Link>
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>
