@@ -8,7 +8,7 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isSticky, setIsSticky] = useState(false);
   const { user } = useContext(AuthContext);
-  // console.log(user.email);
+  // console.log(user?.providerId);
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -26,7 +26,7 @@ const Navbar = () => {
 
   const navItem = [
     { link: "Home", path: "/" },
-    { link: "About", path: "/about" },
+    { link: "Contact us", path: "/about" },
     { link: "Shop", path: "/shop" },
     { link: "Sell Your Book", path: "/admin/dashboard" },
     { link: "Blog", path: "/blog" },
@@ -62,12 +62,11 @@ const Navbar = () => {
           {user ? (
             <div className="flex items-center justify-center gap-4">
               <Avatar
-                img={profile}
-                alt="avatar of Jese"
+                img={user?.photoURL || profile}
+                alt="avatar"
                 rounded
                 className="w-9 cursor-pointer"
               />
-              {/*<p>{user.email}</p>{" "}*/}
             </div>
           ) : (
             ""

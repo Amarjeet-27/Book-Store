@@ -2,11 +2,12 @@ import { useContext, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import googleLogo from "../assets/google-logo.svg";
+
 const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const { user, login, loginWithGoogle } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -28,7 +29,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         alert("Sign up Successfully");
-        navigate(from, { replace: true });
+        navigate("/");
       })
       .catch((error) => {
         const errorCode = error.code;

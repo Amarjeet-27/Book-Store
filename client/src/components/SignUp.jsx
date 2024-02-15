@@ -7,7 +7,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("error");
   const { user, createUser, loginWithGoogle } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
