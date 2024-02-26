@@ -14,7 +14,7 @@ app.use(exprees.json());
 
 const CONNECTION_URL = process.env.CONNECTION_URL;
 // const CONNECTION_URL =
-//   "mongodb+srv://ajchaurasia1214:Amarjeet@cluster0.5vykt9k.mongodb.net?retryWrites=true&w=majority";
+//   "mongodb+srv://ajchaurasia1214:Amarjeet@cluster0.5vykt9k.mongodb.net/bookStore?retryWrites=true&w=majority";
 const PORT = process.env.PORT;
 mongoose
   .connect(CONNECTION_URL)
