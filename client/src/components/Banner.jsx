@@ -4,11 +4,7 @@ import { AuthContext } from "../context/AuthProvider";
 
 const Banner = () => {
   const { search, setSearch } = useContext(AuthContext);
-  // const handleSubmit = (e) => {
-  //   setSearch(find);
-  //   // return search;
-  // };
-  // const [find, setFind] = useState("");
+
   return (
     <div className="px-4 lg:px-24 bg-teal-100 flex items-center">
       <div className="flex w-full flex-col md:flex-row justify-between items-center gap-12 py-40">

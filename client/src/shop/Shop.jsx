@@ -6,7 +6,7 @@ const Shop = () => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/all-book")
+    fetch(`${import.meta.env.VITE_REACT_BASE_URL}all-book`)
       .then((res) => res.json())
       .then((data) => setBooks(data));
   }, []);

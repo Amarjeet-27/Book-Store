@@ -5,13 +5,13 @@ export const Managebooks = () => {
   const [allBooks, setAllBooks] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/all-book")
+    fetch(`${import.meta.env.VITE_REACT_BASE_URL}all-book`)
       .then((res) => res.json())
       .then((res) => setAllBooks(res));
   }, []);
 
   const handleDelete = (id) => {
-    fetch(`http://localhost:3001/book/${id}`, {
+    fetch(`${import.meta.env.VITE_REACT_BASE_URL}book/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

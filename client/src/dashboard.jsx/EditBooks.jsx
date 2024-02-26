@@ -51,7 +51,7 @@ const EditBooks = () => {
       description,
       price,
     };
-    fetch(`http://localhost:3001/book/${id}`, {
+    fetch(`${import.meta.env.VITE_REACT_BASE_URL}book/${id}`, {
       method: "PATCH",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(dataObj),
@@ -59,6 +59,7 @@ const EditBooks = () => {
       .then((res) => res.json())
       .then(() => {
         alert("Book Updated Successfully");
+        console.log(import.meta.env.VITE_REACT_BASE_URL);
         navigate("/admin/dashboard/manage");
       });
   };

@@ -44,7 +44,7 @@ const Uploadbook = () => {
       description,
       price,
     };
-    fetch("http://localhost:3001/upload-book", {
+    fetch(`${import.meta.env.VITE_REACT_BASE_URL}upload-book`, {
       method: "POST",
       headers: { "Content-type": "application/json" },
       body: JSON.stringify(dataObj),
